@@ -1,0 +1,125 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+}
+
+.flex {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+img {
+    position: absolute;
+}
+
+.b1 {
+    transform: translateX(-70px);
+}
+
+.text1,
+.text2 {
+    position: absolute;
+    top: 70px;
+    font-size: 26px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.b2,
+.b3,
+.b4 {
+    opacity: 0;
+}
+
+.b3 {
+    /* transform: translateX(); */
+}
+
+.b4 {
+    transform: translate(10px, 80px);
+    transition: opacity 0.5s;
+}
+
+.flex:hover .b1 {
+    opacity: 0;
+}
+
+.flex:hover .b2 {
+    opacity: 1;
+}
+
+.flex:hover .b4 {
+    opacity: 1;
+    z-index: 10;
+}
+
+.flex:hover .text1 {
+    opacity: 1;
+    z-index: 10;
+}
+
+.flex:active .b2 {
+    opacity: 0;
+}
+
+.flex:active .b3 {
+    opacity: 1;
+}
+
+.flex:active .text1 {
+    opacity: 0;
+}
+
+.flex:active .text2 {
+    opacity: 1;
+    z-index: 10;
+}
+
+.flex:active .b4 {
+    opacity: 1;
+}
+
+@keyframes rotate {
+    from {
+        transform: translate(10px 80px) rotate(0deg);
+    }
+    to {
+        transform: translate(210px, -210px) rotate(360deg);
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(30px);
+    }
+    50% {
+        transform: translateX(-30px);
+    }
+    75% {
+        transform: translateX(30px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+.flex:active .b4 {
+    animation: rotate 0.7s ease-in forwards;
+}
+
+.flex:active {
+    animation: shake 0.5s linear;
+}
